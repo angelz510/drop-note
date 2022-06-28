@@ -17,6 +17,8 @@ mongoose.connect(
   }
 );
 
+app.use("/", require("./routes/noteRoutes"));
+
 app.listen(PORT, () =>
   console.log(`Now listening at http://localhost:${PORT}`)
 );
