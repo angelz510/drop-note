@@ -20,12 +20,22 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
-      {allNotes.map((note, index) => (
-        <div key={index}>
-          <div>{note.text}</div>
-        </div>
-      ))}
+    <div className="note-page">
+      <div className="note-search">
+        <textarea
+          className="note-input"
+          type="text"
+          placeholder="Message"
+        ></textarea>
+        <button className="note-button">Submit</button>
+      </div>
+      <div className="note-container">
+        {allNotes.map((note, index) => (
+          <div key={index} className="note-card">
+            <div className="note-text">{note.text}</div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

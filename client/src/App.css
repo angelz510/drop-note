@@ -1,38 +1,84 @@
-.App {
-  text-align: center;
+.note-page {
+  /* background-color: rgb(242, 149, 149); */
+  min-height: 100%;
+  min-width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.note-search {
+  /* background-color: red; */
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding: 15px;
 }
 
-.App-link {
-  color: #61dafb;
+.note-input {
+  width: 50%;
+  height: 150px;
+  border-radius: 10px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.note-input:focus {
+  outline: none;
+}
+
+.note-button {
+  background-color: #d6d6d6;
+  border: 2px solid #000000;
+  border-radius: 30px;
+  box-shadow: #000000 4px 4px 0 0;
+  color: #000000;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 600;
+  font-size: 18px;
+  padding: 0 18px;
+  line-height: 50px;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  margin-top: 15px;
+}
+
+.note-button:hover {
+  background-color: rgb(233, 233, 233);
+}
+
+.note-button:active {
+  box-shadow: #000000 2px 2px 0 0;
+  transform: translate(2px, 2px);
+}
+
+@media (min-width: 768px) {
+  .note-button {
+    min-width: 120px;
+    padding: 0 25px;
   }
-  to {
-    transform: rotate(360deg);
-  }
+}
+
+.note-container {
+  /* background-color: blue; */
+  text-align: center;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 20px;
+}
+
+.note-card {
+  background-color: whitesmoke;
+  border: 1px solid gainsboro;
+  border-radius: 5px;
+  width: 30%;
+  height: 150px;
+  box-shadow: #000000 4px 4px 0 0;
+}
+
+.note-text {
+  padding: 15px;
 }
