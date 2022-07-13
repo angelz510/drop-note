@@ -4,6 +4,7 @@ import "./App.css";
 
 function App() {
   const [allNotes, setAllNotes] = useState([]);
+  const [newNote, setNewNote] = useState("");
 
   const getAllNotes = async () => {
     try {
@@ -19,16 +20,28 @@ function App() {
     getAllNotes();
   }, []);
 
+  const addNote = async (text) => {
+    try {
+      const result = await axios.post("http://localhost:5050/", { text: text });
+      setNewNote(result.data.text);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div className="note-page">
-      <div className="note-search">
+      <form className="note-search">
         <textarea
           className="note-input"
           type="text"
           placeholder="Message"
+          onChange={(e) => setNewNote(e.target.value)}
         ></textarea>
-        <button className="note-button">Submit</button>
-      </div>
+        <button onClick={() => addNote(newNote)} className="note-button">
+          Submit
+        </button>
+      </form>
       <div className="note-container">
         {allNotes.map((note, index) => (
           <div key={index} className="note-card">
