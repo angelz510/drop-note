@@ -8,7 +8,7 @@ function App() {
 
   const getAllNotes = async () => {
     try {
-      const result = await axios.get("http://localhost:5050/");
+      const result = await axios.get("http://localhost:5050/api/notes");
       console.log(result.data);
       setAllNotes(result.data);
     } catch (error) {
@@ -22,7 +22,9 @@ function App() {
 
   const addNote = async (text) => {
     try {
-      const result = await axios.post("http://localhost:5050/", { text: text });
+      const result = await axios.post("http://localhost:5050/api/newnote", {
+        text: text,
+      });
       setNewNote(result.data.text);
     } catch (error) {
       console.log(error);

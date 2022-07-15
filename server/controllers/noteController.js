@@ -4,7 +4,6 @@ module.exports = {
   getAllNotes: async (req, res) => {
     try {
       const notes = await Note.find();
-      console.log(notes);
       res.json(notes);
     } catch (err) {
       res.json({ msg: err });

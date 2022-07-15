@@ -2,7 +2,6 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 const cors = require("cors");
-const PORT = 5050;
 require("dotenv").config();
 
 app.use(cors());
@@ -17,8 +16,6 @@ mongoose.connect(
   }
 );
 
-app.use("/", require("./routes/noteRoutes"));
+app.use("/api", require("./routes/noteRoutes"));
 
-app.listen(PORT, () =>
-  console.log(`Now listening at http://localhost:${PORT}`)
-);
+app.listen(process.env.PORT || 5050, () => console.log(`You are connected!`));
